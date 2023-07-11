@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
 import axios from "axios"
-import {redirect} from "react-router-dom"
+ 
+import {useNavigate} from "react-router-dom"
 
 function Login() {
 
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
+   const navigate = useNavigate()
 
   function handleSubmit(e) {
 
-    e.preventDefault()
-    console.log("hello")
+    e.preventDefault() 
          axios.post("http://localhost:8080/login", {username, password})
          .then((result) => {
-            if(result === "success"){
-               redirect("/")
+            if(result.data === "success"){
+              console.log("succes ho gya") 
+               navigate("/")
+              //  setUsername("")
+              //  setPassword("")
             }
          })
   }

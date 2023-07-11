@@ -5,8 +5,12 @@ import Login from './FORM/Login'
 function Home() {
   return (
     <div>
-        <Login />
+        
         <Register />
+
+       
+        
+        <Login />
     </div>
   )
 }
