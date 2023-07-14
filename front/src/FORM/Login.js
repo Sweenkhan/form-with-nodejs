@@ -17,9 +17,7 @@ function Login() {
          .then((result) => {
             if(result.data === "success"){
               console.log("succes ho gya") 
-               navigate("/")
-              //  setUsername("")
-              //  setPassword("")
+               navigate("/quiz")  
             }
          })
   }

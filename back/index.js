@@ -17,6 +17,17 @@ app.get("/", (req, res) => {
   // res.status(200).sendFile(__dirname + "main.js")
 });
 
+
+app.get("/quiz", (req, res) => {
+    
+    const showQuestion =  Questions.find({});
+     console.log(req.body)
+     console.log(showQuestion)
+     res.status(200).send("done");
+} )
+
+
+
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -27,18 +38,21 @@ app.post("/login", async (req, res) => {
     const match = await bcrypt.compare(password, userTryingToLogin.password);
 
     if (match) {
-        console.log("match")
-    //   if (password === userTryingToLogin.password) {
-    //     console.log("ho rha hai user check to");
-    //     res.status(200).send("success");
-    //   } else {
-    //     res.status(402).send("invalid credential");
-    //   }
+        console.log(match)
+      if (username === userTryingToLogin.username) {
+        console.log("ho rha hai user check to");
+        res.status(200).send("success");
+      } else {
+        res.status(402).send("invalid credential");
+      }
     }
   } else {
     res.status(401).send("invalid credential");
   }
 });
+
+
+
 
 app.post("/register", async (req, res) => {
   const { name, email, phone, username, password } = req.body;
@@ -51,6 +65,8 @@ app.post("/register", async (req, res) => {
     username,
     password: hashedpassword,
   });
+
+
 
   await newUser.save();
   res.status(200).end("Well Done");
