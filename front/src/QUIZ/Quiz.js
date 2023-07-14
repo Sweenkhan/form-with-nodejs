@@ -7,7 +7,7 @@ function Quiz() {
 
   return (
     <div className='quiz'>
-    <div>Welcome to quiz app?</div>
+    <div>Welcome to quiz app:</div>
     <h2> </h2>
     <p></p>
     <p></p>

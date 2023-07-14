@@ -23,7 +23,7 @@ app.get("/quiz", (req, res) => {
     const showQuestion =  Questions.find({});
      console.log(req.body)
      console.log(showQuestion)
-     res.status(200).send("done");
+     res.status(200).e("done");
 } )
 
 
