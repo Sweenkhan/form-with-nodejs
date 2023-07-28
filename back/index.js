@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import connection from "./db/connection.js";
 import user from "./models/user.js";
+import Question from "./models/quiz.js";
 import bcrypt from "bcrypt";
 
 import { Admin } from "mongodb";
@@ -18,36 +19,83 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/quiz", (req, res) => {
+app.get("/quiz", async(req, res) => {
     
-    const showQuestion =  Questions.find({});
-     console.log(req.body)
-     console.log(showQuestion)
-     res.status(200).e("done");
+    const showQuestion = await Question.find();
+
+    console.log(showQuestion.toString())
+    
+    if(showQuestion){
+      res.status(200).json(showQuestion);
+
+    }else{
+      res.status(401).json("error")
+    }
+    //  console.log(req.body)
 } )
+
+app.post("/quiz", async(req, res) => {
+
+  const newQues = new Question({
+     question: "10 + 2",
+     answer: "12",
+     options: [10,11,13,15]
+  });
+
+  await newQues.save();
+  res.status(200).end("Well Done");
+})
+
+
+
+// app.post("/login", async (req, res) => {
+//   const { username, password } = req.body;
+
+//   const userTryingToLogin = await user.findOne({ username });
+
+//   if (user) {
+    
+//     const match = await bcrypt.compare(password, userTryingToLogin.password);
+
+//     if (match) {
+//         console.log(match)
+//       if (username === userTryingToLogin.username) {
+//         console.log("ho rha hai user check to");
+//         res.status(200).send("success");
+//       } else {
+//         res.status(402).send("invalid credential");
+//       }
+//     }
+//   } else {
+//     res.status(401).send("invalid credential");
+//   }
+// });
 
 
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  const userTryingToLogin = await user.findOne({ username });
+  try {
+    const userTryingToLogin = await user.findOne({ username });
 
-  if (user) {
-    
-    const match = await bcrypt.compare(password, userTryingToLogin.password);
+    if (userTryingToLogin) {
+      const match = await bcrypt.compare(password, userTryingToLogin.password);
 
-    if (match) {
-        console.log(match)
-      if (username === userTryingToLogin.username) {
-        console.log("ho rha hai user check to");
+      if (match) {
+        console.log("Password match");
         res.status(200).send("success");
       } else {
-        res.status(402).send("invalid credential");
+        console.log("Password doesn't match!");
+        res.status(402).send("Invalid credentials");
       }
+    } else {
+      console.log("User not found!");
+      res.status(401).send("Invalid credentials");
     }
-  } else {
-    res.status(401).send("invalid credential");
+  } catch (err) {
+    console.error("Error during login:", err);
+    res.status(500).send("Internal server error");
   }
 });
 
