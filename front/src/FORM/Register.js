@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./Register.css"
 
 function Register() {
   return (
     <div className='register'>
+
+    <div className='registerCnt'> 
       <h2>Register</h2>
       <form method='post' action='http://localhost:8080/register'>
         <input type='text' name='name' placeholder='Name'/><br />
@@ -14,6 +17,7 @@ function Register() {
         <button type='submit' name='register'>Register</button>
         <Link to="/login">Login</Link>
       </form>
+      </div>
     </div>
   )
 }
