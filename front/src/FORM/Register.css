@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.register{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    background-color: black;
+}
+
+.registerCnt{ 
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    
+}
+ 
+.registerCnt form input{
+   width: 300px;
+   height: 30px;
+   margin-bottom: 10px;
+}
+
+.registerCnt button{
+    width: 120px;
+    height: 25px;
+    border: 2px solid black;
+}
+
+.registerCnt a{
+    width: 120px;
+    height: 25px; 
+    border: 2px solid black;
+}
