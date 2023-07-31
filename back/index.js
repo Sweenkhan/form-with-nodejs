@@ -4,11 +4,9 @@ import connection from "./db/connection.js";
 import user from "./models/user.js";
 import Question from "./models/quiz.js";
 import bcrypt from "bcrypt";
+ 
 
-import { Admin } from "mongodb";
-
-const app = express();
-const saltRounds = 10;
+const app = express(); 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,8 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/quiz", async(req, res) => {
     
-    const showQuestion = await Question.find();
-
+    const showQuestion = await Question.find();  
     console.log(showQuestion.toString())
     
     if(showQuestion){
@@ -33,44 +30,22 @@ app.get("/quiz", async(req, res) => {
     }
     //  console.log(req.body)
 } )
+ 
 
-app.post("/quiz", async(req, res) => {
+// app.post("/quiz", async(req, res) => {
 
-  const newQues = new Question({
-     question: "10 + 2",
-     answer: "12",
-     options: [10,11,13,15]
-  });
+//   const {Quest} = req.body  
 
-  await newQues.save();
-  res.status(200).end("Well Done");
-})
+//   const newQues = new Question({
+//     question: Quest.question,
+//     answer: Quest.answer,
+//     options: Quest.options
+//   })
 
-
-
-// app.post("/login", async (req, res) => {
-//   const { username, password } = req.body;
-
-//   const userTryingToLogin = await user.findOne({ username });
-
-//   if (user) {
-    
-//     const match = await bcrypt.compare(password, userTryingToLogin.password);
-
-//     if (match) {
-//         console.log(match)
-//       if (username === userTryingToLogin.username) {
-//         console.log("ho rha hai user check to");
-//         res.status(200).send("success");
-//       } else {
-//         res.status(402).send("invalid credential");
-//       }
-//     }
-//   } else {
-//     res.status(401).send("invalid credential");
-//   }
-// });
-
+//   await newQues.save() 
+//   res.status(200).json("data")
+   
+// })
 
 
 app.post("/login", async (req, res) => {
@@ -113,9 +88,7 @@ app.post("/register", async (req, res) => {
     username,
     password: hashedpassword,
   });
-
-
-
+ 
   await newUser.save();
   res.status(200).end("Well Done");
 });
