@@ -1,5 +1,92 @@
-body{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+}
+
+.quiz {
+    background: #43C6AC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz h2 {
+    font-size: 40px;
+    padding-bottom: 1rem;
+}
+
+.quiz button {
+    margin-top: 10px;
+    padding: 10px 3rem;
+    border-radius: 10px;
+    margin-left: 7rem;
+
+} 
+.quesCnt{
+    padding: 20px;
+    height: 300px;
+    width: 600px; 
+    background-color: black;
+    position: relative;
+    border-radius: 20px;
+}
+
+.quesCnt h2 { 
+    font-size: 30px;
+    color: white;
+    padding: 10px 1rem;
+}
+
+.optionsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 1rem 10px;
+    flex-wrap: wrap;
+}
+
+.quesCnt p{
+    color: white;
+}
+
+.option{
+    width: 250px;
+    height: 50px;
+    margin: 0.7 20px;
     
+}
+.option input, label{
+    font-size: 30px;
+    color: white;
+
+}
+
+.option input{
+    list-style-type: square;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+}
+
+.quesCnt button{
+    width: 110px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding: 0 20px;
+    transition: all 0.4s linear;
+}
+
+.quesCnt button:hover{
+    border: 1px solid white;
+    background-color: black;
+    color: white;
 }

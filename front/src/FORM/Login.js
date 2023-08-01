@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import "./Login.css"
  
 import {useNavigate} from "react-router-dom"
 
@@ -26,6 +27,7 @@ function Login() {
 
   return (
     <div className='login'>
+    <div className='loginCnt'> 
     <h2>Login</h2>
         <form method='post' onSubmit={handleSubmit}>
         <input 
@@ -44,7 +46,7 @@ function Login() {
          /><br />
         <button type="submit" name='login'>Login</button>
     </form>
-
+    </div>
     </div>
   )
 }
