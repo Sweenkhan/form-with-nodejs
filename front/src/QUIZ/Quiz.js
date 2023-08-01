@@ -28,21 +28,28 @@ function Quiz() {
              e.preventDefault();  
   }
 
-  const [timer, setTimer] = useState(20)
-  let time = 1000; 
+  const [timer, setTimer] = useState(20) 
+  let timeout = 1000
+
+ 
+   let runTimer = check && setTimeout(() => {
+    setTimer(timer - 1)
+    timeout = 1000
+
+    if(timer === 0){
+      console.log("chal rha hai")
+      setTimer(20)
+      setIndex(index + 1)
+    }if(index === 6){
+      console.log("bnd ho gya")
+      clearTimeout(runTimer)
+    }
+
+  }, timeout);
 
 
-  function countTimer(time){
-    setInterval((timer) => {
-      setTimer(Number(timer - 1))
+     
   
-      if(timer === 0){
-        setIndex(index + 1)
-        setTimer(20)
-      }
-  
-     }, time); 
-  }
  
     
  
