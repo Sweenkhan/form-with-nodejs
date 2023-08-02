@@ -45,15 +45,7 @@ function Quiz() {
       clearTimeout(runTimer)
     }
 
-  }, timeout);
-
-
-     
-  
- 
-    
- 
-
+  }, timeout); 
    
 
   return (
