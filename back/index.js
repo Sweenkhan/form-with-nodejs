@@ -76,7 +76,6 @@ app.post("/login", async (req, res) => {
 
 
 
-
 app.post("/register", async (req, res) => {
   const { name, email, phone, username, password } = req.body;
   const hashedpassword = await bcrypt.hash(password, 10);
