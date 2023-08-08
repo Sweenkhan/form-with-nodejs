@@ -20,7 +20,7 @@ function Login() {
             if(result.data === "success"){
               console.log("succes ho gya") 
                navigate("/quiz")  
-            }
+            } else {alert("wrong credential")}
          })
   }
 
