@@ -19,11 +19,14 @@ function Login() {
           
             if(result.data === "success"){
               console.log("succes ho gya") 
+  
+              sessionStorage.setItem("name", username)
+
                navigate("/quiz")  
             } else {alert("wrong credential")}
          })
   }
-
+ 
 
   return (
     <div className='login'>
