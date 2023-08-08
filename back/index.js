@@ -31,21 +31,7 @@ app.get("/quiz", async(req, res) => {
     //  console.log(req.body)
 } )
  
-
-// app.post("/quiz", async(req, res) => {
-
-//   const {Quest} = req.body  
-
-//   const newQues = new Question({
-//     question: Quest.question,
-//     answer: Quest.answer,
-//     options: Quest.options
-//   })
-
-//   await newQues.save() 
-//   res.status(200).json("data")
-   
-// })
+ 
 
 
 app.post("/login", async (req, res) => {
@@ -89,7 +75,7 @@ app.post("/register", async (req, res) => {
   });
  
   await newUser.save();
-  res.status(200).end("Well Done");
+  res.status(200).send("success");
 });
 
 connection.then(() => {
