@@ -3,8 +3,7 @@ import Register from './FORM/Register'
 
 function Home() {
   return (
-    <div>
-        
+    <div> 
         <Register />
 
     </div>
