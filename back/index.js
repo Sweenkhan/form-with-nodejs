@@ -5,7 +5,6 @@ import user from "./models/user.js";
 import Question from "./models/quiz.js";
 import bcrypt from "bcrypt";
  
-
 const app = express(); 
 
 app.use(express.json());
