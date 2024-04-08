@@ -31,7 +31,6 @@ app.get("/quiz", async(req, res) => {
     //  console.log(req.body)
 } )
  
- 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
