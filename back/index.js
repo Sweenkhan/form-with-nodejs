@@ -15,8 +15,6 @@ app.get("/", (req, res) => {
   // res.status(200).sendFile(__dirname + "main.js")
 });
 
-
-
 app.get("/quiz", async(req, res) => {
     
     const showQuestion = await Question.find();  
