@@ -19,7 +19,6 @@ app.get("/quiz", async(req, res) => {
     
     const showQuestion = await Question.find();  
     console.log(showQuestion.toString())
-    
     if(showQuestion){
       res.status(200).json(showQuestion);
 
