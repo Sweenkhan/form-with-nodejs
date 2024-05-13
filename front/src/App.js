@@ -5,8 +5,6 @@ import Quiz from './QUIZ/Quiz'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './HEADER/Header';
 
-
-
 function App() {
   return (
     <BrowserRouter>
